@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MBU Data Science Lab Command Center</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header id="hdr"></header>
+    <main id="top">
+        <section class="hero" aria-label="Introduction"><canvas id="bg" aria-hidden="true"></canvas>
+            <span class="sym" style="top:14%;left:46%">∑</span><span class="sym"
+                style="top:70%;left:38%;animation-delay:2s">μ</span><span class="sym"
+                style="top:30%;left:4%;animation-delay:4s">∫</span>
+            <div>
+                <h1>DATA SCIENCE<span>LAB COMMAND CENTER</span></h1>
+                <p class="lead">A digital workspace for exploring, experimenting and understanding data.</p>
+                <div class="flow">Explore → Experiment → Analyze → Visualize → Model → Evaluate</div>
+                <a class="btn" href="#explorer">Explore Experiments</a><a class="btn g" href="#pipeline">Learning
+                    Path</a>
+            </div>
+            <aside class="badge" id="badge" aria-label="Student lab badge">
+                <div class="profile-photo" role="img" aria-label="Student logo for N V S Charan Tej">
+                    <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="av" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0" stop-color="#22d3ee"/>
+                                <stop offset="1" stop-color="#a78bfa"/>
+                            </linearGradient>
+                        </defs>
+                        <circle cx="60" cy="60" r="60" fill="#0e1629"/>
+                        <circle cx="60" cy="46" r="20" fill="url(#av)"/>
+                        <path d="M22 104c4-20 19-32 38-32s34 12 38 32" fill="url(#av)"/>
+                    </svg>
+                </div>
+
+<div class="k">
+    <span>LAB MEMBER</span>
+    <span>MBU-DS</span>
+</div>
+
+<h2>N V S Charan Tej</h2>
+<div>B.Tech — Data Science</div>
+
+<dl>
+    <dt>Roll Number</dt>
+    <dd>24102A030084</dd>
+
+    <dt>Faculty</dt>
+    <dd>Bosubabu S</dd>
+
+    <dt>Semester</dt>
+    <dd>V</dd>
+                </dl>
+                <div class="acc"><span class="dot"></span>LAB ACCESS · ACTIVE</div>
+                <div class="k" style="margin-top:12px">MOHAN BABU UNIVERSITY</div>
+            </aside>
+        </section>
+        <section aria-label="Lab analytics">
+            <div class="stats" id="stats"></div>
+        </section>
+        <section id="pipeline">
+            <h2>Learning pipeline</h2>
+            <div class="pipe" id="pipe"></div>
+        </section>
+        <section id="explorer">
+            <h2>Experiment explorer</h2>
+            <div class="bar"><input id="q" type="search" placeholder="Search the laboratory...  (press / to focus)"
+                    aria-label="Search experiments">
+                <div class="chips" id="chips" role="group" aria-label="Filter"></div>
+            </div>
+            <div id="list" aria-live="polite"></div>
+        </section>
+        <section id="actions">
+            <h2>Lab quick actions</h2>
+            <div class="qa"><a href="#explorer">Browse Experiments</a><a href="#pipeline">View Learning Path</a><a
+                    href="#resources">Open Resources</a><a href="#badge">View Profile</a></div>
+        </section>
+        <section id="resources">
+            <h2>Resources</h2>
+            <div class="qa" id="res"></div>
+        </section>
+    </main>
+    <button class="btn fab" id="add">＋ NEW EXPERIMENT</button>
+    <dialog id="dlg" aria-label="New experiment">
+        <h2>New experiment</h2>
+        <form id="frm" method="dialog"></form>
+    </dialog>
+    <footer id="ftr"></footer>
+    <script src="js/data.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
