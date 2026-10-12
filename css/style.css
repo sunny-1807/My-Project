@@ -1,0 +1,1121 @@
+:root {
+    --bg: #070b14;
+    --bg2: #0c1322;
+    --pn: #0e1629;
+    --ln: #1e2b48;
+    --tx: #e8edf7;
+    --mu: #8d9bb8;
+    --cy: #22d3ee;
+    --vi: #a78bfa;
+    --ok: #34d399;
+    --wa: #fbbf24;
+    --cd: #04070d;
+    --hf: Bahnschrift, "Segoe UI Variable Display", "Trebuchet MS", system-ui, sans-serif;
+    --mf: ui-monospace, "Cascadia Code", Consolas, monospace
+}
+
+[data-theme=light] {
+    --bg: #f2f4f9;
+    --bg2: #e7ebf4;
+    --pn: #fff;
+    --ln: #c9d2e3;
+    --tx: #111a2e;
+    --mu: #4b5a78;
+    --cy: #0b6f8a;
+    --vi: #5b21b6;
+    --ok: #047857;
+    --wa: #92400e
+}
+
+* {
+    box-sizing: border-box
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 70px
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--tx);
+    font: 16px/1.55 "Segoe UI", system-ui, sans-serif;
+    background-image: linear-gradient(var(--ln) 1px, transparent 1px), linear-gradient(90deg, var(--ln) 1px, transparent 1px);
+    background-size: 48px 48px;
+    background-attachment: fixed;
+    animation: in .5s
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: var(--bg);
+    opacity: .93;
+    z-index: -1
+}
+
+@keyframes in {
+    from {
+        opacity: 0
+    }
+}
+
+a {
+    color: var(--cy)
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--hf);
+    margin: 0;
+    line-height: 1.1
+}
+
+:focus-visible {
+    outline: 2px solid var(--cy);
+    outline-offset: 2px
+}
+
+header#hdr {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 12px 28px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--ln)
+}
+
+.brand {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--tx);
+    font-family: var(--hf)
+}
+
+.brand b {
+    font-size: 22px;
+    color: var(--cy);
+    letter-spacing: .06em
+}
+
+.brand span {
+    font-size: 13px;
+    color: var(--mu)
+}
+
+#nav {
+    display: flex;
+    gap: 6px;
+    margin: 0 auto
+}
+
+#nav a {
+    color: var(--mu);
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 4px
+}
+
+#nav a:hover,
+#nav a.on {
+    color: var(--tx);
+    background: var(--bg2)
+}
+
+#nav a.on {
+    box-shadow: inset 0 -2px var(--cy)
+}
+
+.hr {
+    display: flex;
+    gap: 12px;
+    align-items: center
+}
+
+.ib {
+    background: none;
+    border: 1px solid var(--ln);
+    color: var(--tx);
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px
+}
+
+.ib:hover {
+    border-color: var(--cy)
+}
+
+.prof {
+    color: var(--tx);
+    text-decoration: none;
+    border: 1px solid var(--ln);
+    padding: 7px 14px;
+    border-radius: 4px;
+    font-size: 14px
+}
+
+.prof:hover {
+    border-color: var(--vi)
+}
+
+.burger {
+    display: none;
+    margin-left: auto;
+    background: none;
+    border: 1px solid var(--ln);
+    color: var(--tx);
+    font-size: 20px;
+    padding: 4px 10px;
+    border-radius: 4px
+}
+
+main {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 24px 80px
+}
+
+section {
+    padding: 56px 0 8px
+}
+
+.k {
+    font-family: var(--mf);
+    font-size: 12px;
+    color: var(--mu);
+    letter-spacing: .04em
+}
+
+.btn {
+    display: inline-block;
+    cursor: pointer;
+    font: 600 14px var(--hf);
+    padding: 11px 20px;
+    border-radius: 4px;
+    border: 1px solid var(--cy);
+    background: var(--cy);
+    color: #04141a;
+    text-decoration: none;
+    transition: transform .15s
+}
+
+.btn:hover {
+    transform: translateY(-2px)
+}
+
+.btn:active {
+    transform: none
+}
+
+.btn.g {
+    background: none;
+    color: var(--cy)
+}
+
+.btn.s {
+    padding: 6px 12px;
+    font-size: 13px
+}
+
+/* hero */
+.hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 40px;
+    align-items: center;
+    padding: 72px 0 40px;
+    min-height: 520px
+}
+
+#bg {
+    position: absolute;
+    inset: 0 -24px;
+    width: calc(100% + 48px);
+    height: 100%;
+    z-index: -1;
+    opacity: .7
+}
+
+.hero h1 {
+    font-size: clamp(40px, 7vw, 84px);
+    letter-spacing: -.02em
+}
+
+.hero h1 span {
+    display: block;
+    color: var(--cy)
+}
+
+.hero p.lead {
+    max-width: 44ch;
+    color: var(--mu);
+    font-size: 18px
+}
+
+.flow {
+    font-family: var(--mf);
+    font-size: 12px;
+    color: var(--vi);
+    margin: 18px 0 28px
+}
+
+.hero .btn {
+    margin-right: 10px
+}
+
+.sym {
+    position: absolute;
+    font-family: var(--mf);
+    color: var(--vi);
+    opacity: .25;
+    font-size: 28px;
+    animation: fl 8s ease-in-out infinite
+}
+
+@keyframes fl {
+    50% {
+        transform: translateY(-14px)
+    }
+}
+
+.badge {
+    border: 1px solid var(--ln);
+    background: linear-gradient(180deg, var(--pn), var(--bg2));
+    padding: 22px;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 20px 50px #0006;
+    border-top: 3px solid var(--cy);
+    transition: transform .25s, box-shadow .25s;
+    text-align: center;
+}
+
+.badge:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 28px 60px #0008;
+}
+
+.badge dl {
+    text-align: left;
+}
+
+.badge .k {
+    display: flex;
+    justify-content: space-between
+}
+
+.badge h2 {
+    font-size: 30px;
+    margin: 14px 0 2px
+}
+
+.badge dl {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 4px 14px;
+    font-size: 14px;
+    margin: 16px 0
+}
+
+.badge dt {
+    color: var(--mu)
+}
+
+.badge dd {
+    margin: 0;
+    font-family: var(--mf)
+}
+
+.acc {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-top: 1px dashed var(--ln);
+    padding-top: 14px;
+    font-family: var(--mf);
+    font-size: 13px
+}
+
+.dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--ok);
+    box-shadow: 0 0 0 0 var(--ok);
+    animation: pu 2s infinite
+}
+
+@keyframes pu {
+    70% {
+        box-shadow: 0 0 0 9px #0000
+    }
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--ln);
+    background: var(--pn);
+    border-radius: 6px
+}
+
+.stats div {
+    padding: 20px 24px;
+    border-right: 1px solid var(--ln)
+}
+
+.stats div:last-child {
+    border: 0
+}
+
+.stats b {
+    display: block;
+    font: 700 38px var(--hf);
+    color: var(--cy)
+}
+
+/* pipeline */
+.pipe {
+    display: flex;
+    gap: 0;
+    margin-top: 24px;
+    position: relative
+}
+
+.st {
+    flex: 1;
+    background: none;
+    border: 0;
+    color: var(--tx);
+    text-align: left;
+    padding: 0 12px 0 0;
+    cursor: pointer;
+    position: relative
+}
+
+.st::before {
+    content: "";
+    display: block;
+    height: 2px;
+    background: var(--ln);
+    margin: 10px 0 14px;
+    background-image: linear-gradient(90deg, var(--cy), var(--cy));
+    background-size: 0 100%;
+    background-repeat: no-repeat;
+    animation: ln 1.2s forwards;
+    animation-delay: calc(var(--i)*.2s)
+}
+
+@keyframes ln {
+    to {
+        background-size: 100% 100%
+    }
+}
+
+.st::after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--cy)
+}
+
+.st:hover::after {
+    background: var(--cy)
+}
+
+.st b {
+    display: block;
+    font: 600 15px var(--hf)
+}
+
+.st span {
+    font-size: 13px;
+    color: var(--mu)
+}
+
+/* explorer */
+.bar {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 20px 0
+}
+
+.bar input {
+    flex: 1;
+    min-width: 220px;
+    background: var(--pn);
+    border: 1px solid var(--ln);
+    color: var(--tx);
+    padding: 12px 16px;
+    border-radius: 4px;
+    font: 15px var(--mf)
+}
+
+.chips {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap
+}
+
+.chip {
+    background: none;
+    border: 1px solid var(--ln);
+    color: var(--mu);
+    padding: 8px 14px;
+    border-radius: 99px;
+    cursor: pointer;
+    font: 12px var(--mf)
+}
+
+.chip.on,
+.chip:hover {
+    border-color: var(--cy);
+    color: var(--cy)
+}
+
+.x {
+    border-top: 1px solid var(--ln);
+    animation: in .4s
+}
+
+.x:nth-child(3n) .xh .n {
+    color: var(--vi)
+}
+
+.xh {
+    display: grid;
+    grid-template-columns: 70px 1fr auto auto;
+    gap: 16px;
+    align-items: center;
+    width: 100%;
+    background: none;
+    border: 0;
+    color: var(--tx);
+    padding: 20px 4px;
+    cursor: pointer;
+    text-align: left
+}
+
+.xh .n {
+    font: 700 34px var(--hf);
+    color: var(--cy)
+}
+
+.xh h3 {
+    font-size: 22px
+}
+
+.tags {
+    font: 11px var(--mf);
+    color: var(--mu);
+    margin-top: 6px
+}
+
+.tags i {
+    font-style: normal;
+    margin-right: 12px
+}
+
+.stt {
+    font: 11px var(--mf);
+    padding: 3px 9px;
+    border-radius: 99px;
+    border: 1px solid var(--mu);
+    color: var(--mu)
+}
+
+.stt.c {
+    border-color: var(--ok);
+    color: var(--ok)
+}
+
+.stt.p {
+    border-color: var(--wa);
+    color: var(--wa)
+}
+
+.xb {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows .35s
+}
+
+.x:hover .xb,
+.x:focus-within .xb,
+.x.open .xb {
+    grid-template-rows: 1fr
+}
+
+.xb>div {
+    overflow: hidden
+}
+
+.xin {
+    padding: 0 4px 22px 86px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px
+}
+
+.xin p {
+    margin: 0 0 12px;
+    color: var(--mu)
+}
+
+.mods {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap
+}
+
+.mods a {
+    font: 12px var(--mf);
+    border: 1px solid var(--ln);
+    color: var(--tx);
+    padding: 3px 9px;
+    border-radius: 3px;
+    text-decoration: none
+}
+
+.mods a:hover {
+    border-color: var(--cy)
+}
+
+.pb {
+    height: 8px;
+    background: var(--bg2);
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 6px 0
+}
+
+.pb i {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, var(--cy), var(--vi));
+    width: 0;
+    transition: width .8s
+}
+
+.act {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    flex-wrap: wrap
+}
+
+.empty {
+    border: 1px dashed var(--ln);
+    padding: 36px;
+    text-align: center;
+    color: var(--mu);
+    border-radius: 6px
+}
+
+.qa {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 20px
+}
+
+.qa a {
+    border: 1px solid var(--ln);
+    padding: 18px;
+    color: var(--tx);
+    text-decoration: none;
+    font: 600 15px var(--hf);
+    background: var(--pn);
+    transition: .2s
+}
+
+.qa a:hover {
+    border-color: var(--cy);
+    transform: translateY(-3px)
+}
+
+.fab {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 15;
+    box-shadow: 0 8px 24px #0008;
+    border-radius: 99px;
+    padding: 14px 22px
+}
+
+dialog {
+    background: var(--pn);
+    color: var(--tx);
+    border: 1px solid var(--ln);
+    border-radius: 8px;
+    width: min(640px, 94vw);
+    max-height: 90vh;
+    padding: 24px;
+    animation: in .25s
+}
+
+dialog::backdrop {
+    background: #000a
+}
+
+dialog form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px
+}
+
+dialog label {
+    display: grid;
+    gap: 4px;
+    font-size: 13px;
+    color: var(--mu)
+}
+
+dialog .w {
+    grid-column: 1/-1
+}
+
+dialog input,
+dialog select,
+dialog textarea {
+    background: var(--bg);
+    color: var(--tx);
+    border: 1px solid var(--ln);
+    padding: 9px;
+    border-radius: 4px;
+    font: 14px var(--mf)
+}
+
+footer#ftr {
+    border-top: 1px solid var(--ln);
+    padding: 32px;
+    text-align: center;
+    color: var(--mu);
+    background: var(--bg)
+}
+
+footer strong {
+    color: var(--tx);
+    letter-spacing: .1em
+}
+
+footer p {
+    margin: 4px
+}
+
+/* experiment workspace */
+.crumb {
+    padding-top: 36px
+}
+
+.exh h1 {
+    font-size: clamp(28px, 5vw, 52px);
+    margin: 10px 0 24px;
+    max-width: 20ch
+}
+
+.meta {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--ln);
+    border: 1px solid var(--ln)
+}
+
+.meta div {
+    background: var(--pn);
+    padding: 14px 18px
+}
+
+.meta b {
+    display: block;
+    font: 600 16px var(--hf);
+    margin-top: 2px
+}
+
+.res {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    border: 1px solid var(--ln)
+}
+
+.res a {
+    flex: 1;
+    padding: 14px;
+    text-align: center;
+    color: var(--tx);
+    text-decoration: none;
+    font: 600 13px var(--mf);
+    border-right: 1px solid var(--ln);
+    background: var(--pn)
+}
+
+.res a:hover {
+    background: var(--cy);
+    color: #04141a
+}
+
+.two {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 32px;
+    margin-top: 32px
+}
+
+.brief h3,
+.side h3,
+.nb h3 {
+    font-size: 13px;
+    font-family: var(--mf);
+    color: var(--cy);
+    margin: 22px 0 6px;
+    font-weight: 500
+}
+
+.brief p {
+    margin: 0;
+    max-width: 68ch
+}
+
+.flowv {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative
+}
+
+.flowv li {
+    border: 1px solid var(--ln);
+    background: var(--pn);
+    padding: 10px 14px;
+    margin-bottom: 26px;
+    position: relative;
+    font: 600 14px var(--hf)
+}
+
+.flowv li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    height: 26px;
+    width: 2px;
+    background: var(--ln)
+}
+
+.flowv li:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    left: calc(50% - 2px);
+    top: 100%;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--cy);
+    z-index: 2;
+    animation: dr 1.6s infinite linear;
+    animation-delay: calc(var(--i)*.25s)
+}
+
+@keyframes dr {
+    from {
+        transform: translateY(0)
+    }
+
+    to {
+        transform: translateY(26px)
+    }
+}
+
+.di {
+    display: grid;
+    grid-template-columns: 110px 70px 1fr;
+    gap: 10px;
+    align-items: center;
+    font-size: 14px;
+    margin: 8px 0
+}
+
+.di .pb {
+    margin: 0
+}
+
+.mod {
+    display: grid;
+    grid-template-columns: 48px 1fr auto;
+    gap: 16px;
+    align-items: center;
+    border-top: 1px solid var(--ln);
+    padding: 16px 4px
+}
+
+.mod .l {
+    font: 700 28px var(--hf);
+    color: var(--vi)
+}
+
+.mod p {
+    margin: 0;
+    color: var(--mu);
+    font-size: 14px
+}
+
+/* notebook */
+.nbx {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 32px;
+    margin-top: 28px
+}
+
+.nbn {
+    position: sticky;
+    top: 80px;
+    align-self: start;
+    display: grid;
+    gap: 2px
+}
+
+.nbn a {
+    padding: 8px 12px;
+    color: var(--mu);
+    text-decoration: none;
+    border-left: 2px solid var(--ln);
+    font-size: 14px
+}
+
+.nbn a.on {
+    color: var(--tx);
+    border-color: var(--cy);
+    background: var(--bg2)
+}
+
+.pn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 0
+}
+
+.pn .ltr {
+    display: flex;
+    gap: 4px
+}
+
+.pn .ltr a {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--ln);
+    color: var(--mu);
+    text-decoration: none;
+    font: 600 14px var(--mf)
+}
+
+.pn .ltr a.on {
+    background: var(--cy);
+    color: #04141a;
+    border-color: var(--cy)
+}
+
+.nb p,
+.nb ol {
+    margin: 0;
+    max-width: 72ch
+}
+
+.code,
+.con {
+    background: var(--cd);
+    color: #d6e2ff;
+    border: 1px solid var(--ln);
+    border-radius: 6px;
+    overflow: hidden
+}
+
+.code>div,
+.con>div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 14px;
+    border-bottom: 1px solid #1b2742;
+    font: 12px var(--mf);
+    color: #8d9bb8
+}
+
+pre {
+    margin: 0;
+    padding: 16px;
+    overflow: auto;
+    font: 14px/1.6 var(--mf)
+}
+
+.con pre {
+    color: var(--ok)
+}
+
+.code button {
+    background: none;
+    border: 1px solid #33456c;
+    color: #cfe;
+    padding: 3px 12px;
+    border-radius: 3px;
+    cursor: pointer;
+    font: 12px var(--mf)
+}
+
+.vz {
+    display: grid;
+    gap: 8px;
+    max-width: 420px
+}
+
+.vz div {
+    display: grid;
+    grid-template-columns: 120px 1fr 40px;
+    gap: 10px;
+    align-items: center;
+    font-size: 13px
+}
+
+.vz .pb {
+    margin: 0
+}
+
+@media(max-width:900px) {
+    #nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: var(--bg);
+        padding: 12px;
+        border-bottom: 1px solid var(--ln)
+    }
+
+    #nav.open {
+        display: flex
+    }
+
+    .burger {
+        display: block
+    }
+
+    .hr .prof {
+        display: none
+    }
+
+    .hero,
+    .two,
+    .nbx,
+    .xin {
+        grid-template-columns: 1fr
+    }
+
+    .xin {
+        padding-left: 4px
+    }
+
+    .stats,
+    .qa,
+    .meta {
+        grid-template-columns: 1fr 1fr
+    }
+
+    .stats div:nth-child(2) {
+        border-right: 0
+    }
+
+    .pipe {
+        flex-direction: column
+    }
+
+    .st {
+        padding: 0 0 18px 28px;
+        border-left: 2px solid var(--ln);
+        margin-left: 6px
+    }
+
+    .st::before {
+        display: none
+    }
+
+    .st::after {
+        left: -8px;
+        top: 2px
+    }
+
+    .nbn {
+        position: static;
+        order: -1
+    }
+
+    .xh {
+        grid-template-columns: 50px 1fr
+    }
+
+    .xh .stt {
+        display: none
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important
+    }
+}
+.profile-photo {
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 3px;
+    background: linear-gradient(135deg, var(--cy), var(--vi));
+    box-shadow: 0 0 0 4px var(--pn), 0 0 24px #22d3ee55;
+    transition: transform .25s, box-shadow .25s;
+}
+
+.profile-photo:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 0 4px var(--pn), 0 0 36px #a78bfa88;
+}
+
+.profile-photo svg,
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    background: var(--pn);
+}
