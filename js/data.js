@@ -123,7 +123,7 @@ function status(e) { const p = progress(e); return p.n === 0 ? "AVAILABLE" : p.n
 function setTheme(t) { document.documentElement.dataset.theme = t; localStorage.setItem("theme", t); const b = $("#themeBtn"); if (b) { b.textContent = t === "dark" ? "☾" : "☀"; b.setAttribute("aria-label", "Switch to " + (t === "dark" ? "light" : "dark") + " theme") } }
 setTheme(localStorage.getItem("theme") || "dark");
 function chrome(active) {
-    $("#hdr").innerHTML = `<a class="brand" href="index.html"><b>MBU</b><span>Data Science Lab</span></a>
+    $("#hdr").innerHTML = `<a class="brand" href="index.html"><img class="mbu-logo" src="assets/mbu-logo.webp" alt="Mohan Babu University"><span>Data Science Lab</span></a>
 <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">☰</button>
 <nav id="nav" aria-label="Main">${[["Command Center", "top"], ["Experiments", "explorer"], ["Learning Path", "pipeline"], ["Resources", "resources"]].map(([t, k]) => `<a href="index.html#${k}" data-k="${k}" class="${active === k ? "on" : ""}">${t}</a>`).join("")}</nav>
 <div class="hr"><button id="themeBtn" class="ib"></button><a class="prof" href="index.html#badge">Student Profile</a></div>`;
